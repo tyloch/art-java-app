@@ -25,7 +25,7 @@ To run the application using the art-orderbook Docker image, execute the followi
 ```bash
 docker run -i art-orderbook < tests/test2.in | jq -S . | diff - <(jq -S . tests/test2.out)
 ```
-or
+or ( there is one open issue with input data with this command )
 ```bash
 docker run -i -v $(pwd):/app art-orderbook /app/run.sh < tests/test2.in | jq -S . | diff - <(jq -S . tests/test2.out)
 ```
