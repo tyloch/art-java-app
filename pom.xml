@@ -22,7 +22,6 @@
 
   <dependencies>
     <!-- Other dependencies ... -->
-    <!-- JUnit Jupiter (JUnit 5) -->
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
