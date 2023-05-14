@@ -20,14 +20,19 @@ RUN mvn package && ls -la /app/target
 FROM openjdk:11
 
 # Set the working directory
-WORKDIR /app
+WORKDIR /app-bin
 
 # Copy the compiled JAR file from the build container
-#COPY --from=build /app/target/*.jar /app/orderbook-app.jar
+COPY --from=build /app/target/*-jar-with-dependencies.jar /app-bin/orderbook-app.jar
 
-# Copy the compiled JAR file from the build container
-COPY --from=build /app/target/*-jar-with-dependencies.jar /app/orderbook-app.jar
+# Copy the run.sh script into the container
+COPY run.sh /app-bin/run.sh
 
+# Make the run.sh script executable
+RUN chmod +x /app-bin/run.sh
 
-# Set the entry point for the container
-ENTRYPOINT ["java", "-jar", "/app/orderbook-app.jar"]
+# Set the default command for the container
+# CMD ["/app-bin/run.sh"]
+
+# Set the default command for the container
+CMD ["java", "-jar", "/app-bin/orderbook-app.jar"]

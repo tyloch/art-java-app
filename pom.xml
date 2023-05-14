@@ -9,7 +9,7 @@
   <artifactId>art-java-app</artifactId>
   <version>0.0.1</version>
 
-  <name>art-java-app</name>
+  <name>Order Book Application</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
